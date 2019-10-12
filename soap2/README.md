@@ -1,11 +1,7 @@
-# Simple base SOAP via Spring-Boot
-
-> ##### [SOAP]() 
-> ##### [SOAP with custom wsdl]()
+# Simple base SOAP via Spring-Boot with custom wsdl
 
 endpoints:
 ```
-http://localhost:8080/ws/countries.wsdl
 http://localhost:8080/ws/service.wsdl
 ```
 
@@ -25,14 +21,9 @@ http://localhost:8080/ws/service.wsdl
 curl --header "content-type: text/xml" -d @request.xml http://localhost:8080/ws
 ```
 
-generate by hands
-```shell script
-cd dir with *.xsd
-xjc -d ../../java/ -p ru.github.reomor.soap.model_gen model.xsd
-```
 generate by wsimport
 ```shell script
-wsimport -keep -verbose -p ru.github.reomor.model http://localhost:8080/ws/service.wsdl
+wsimport -keep -verbose http://localhost:8080/ws/service.wsdl
 ```
 
 file package-info.java contains important information and it's namespace is used for marshalling/unmarshalling

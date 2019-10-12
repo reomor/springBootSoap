@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://soap.reomor.ru/soap/model" name="Service"
+        xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+        xmlns:model="http://soap.reomor.ru/soap/base/model"
+        xmlns:tns="http://soap.reomor.ru/soap/model"
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+        xmlns="http://schemas.xmlsoap.org/wsdl/">
+    <types>
+        <xs:schema version="2.0" targetNamespace="http://soap.reomor.ru/soap/model" elementFormDefault="qualified">
+            <xs:import namespace="http://soap.reomor.ru/soap/base/model" schemaLocation="model.xsd"/>
+
+            <xs:element name="getCountryRequest">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="name" type="xs:string"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+
+            <xs:element name="getCountryResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="country" type="model:country"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </types>
+
+    <message name="getCountryRequest">
+        <part name="parameters" element="tns:getCountryRequest"/>
+    </message>
+    <message name="getCountryResponse">
+        <part name="parameters" element="tns:getCountryResponse"/>
+    </message>
+
+    <portType name="Service">
+        <operation name="getCountry">
+            <input name="request" message="tns:getCountryRequest"/>
+            <output name="response" message="tns:getCountryResponse"/>
+        </operation>
+    </portType>
+
+    <binding name="ServicePortBinding" type="tns:Service">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="getCountry">
+            <soap:operation style="document"/>
+            <input name="request">
+                <soap:body use="literal" parts="parameters"/>
+            </input>
+            <output name="response">
+                <soap:body use="literal"/>
+            </output>
+        </operation>
+    </binding>
+
+    <service name="ServicePort">
+        <port binding="tns:ServicePortBinding" name="ServicePortSoap">
+            <soap:address location="/ws"/>
+        </port>
+    </service>
+</wsdl:definitions>
