@@ -74,7 +74,7 @@
                 </executions>
                 <configuration>
                     <packageName>ru.github.reomor.soap.model</packageName>
-                    <outputDirectory>src/main/java</outputDirectory>
+<!--                    <outputDirectory>src/main/java</outputDirectory>-->
                     <generateEpisode>false</generateEpisode>
                     <clearOutputDir>false</clearOutputDir>
                     <sources>

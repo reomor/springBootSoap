@@ -2,8 +2,8 @@ package ru.github.reomor.soap1.repository;
 
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
-import ru.github.reomor.soap1.model.Country;
-import ru.github.reomor.soap1.model.Currency;
+import ru.github.reomor.soap.model.Country;
+import ru.github.reomor.soap.model.Currency;
 
 import javax.annotation.PostConstruct;
 import java.util.HashMap;

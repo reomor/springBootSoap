@@ -5,9 +5,9 @@ import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
+import ru.github.reomor.soap.model.GetCountryRequest;
+import ru.github.reomor.soap.model.GetCountryResponse;
 import ru.github.reomor.soap1.config.WebServiceConfig;
-import ru.github.reomor.soap1.model.GetCountryRequest;
-import ru.github.reomor.soap1.model.GetCountryResponse;
 import ru.github.reomor.soap1.repository.CountryRepository;
 
 @Endpoint
